@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import { ChevronDown, Search } from '../../../ui/icons';
+import { ArrowBorder, ChevronDown, Message, Search } from '../../../ui/icons';
 import CustomSelect from './CustomSelect'
 
 const questionsData = [
@@ -44,7 +44,7 @@ const QAA = () => {
                 </div>
             </div>
 
-            <div className="flex justify-between my-4 flex-wrap gap-3">
+            <div className="flex my-4 flex-wrap sm:flex-nowrap justify-between gap-3">
                 <CustomSelect
                     options={[
                         { value: "all", label: "All lectures" },
@@ -54,7 +54,7 @@ const QAA = () => {
                     ]}
                     defaultValue="all"
                     onChange={setFilter}
-                    width='25%'
+                    widthPc='25%'
                     widthMob='48%'
                 />
 
@@ -66,7 +66,7 @@ const QAA = () => {
                     ]}
                     defaultValue="newest"
                     onChange={setSort}
-                    width='35%'
+                    widthPc='35%'
                     widthMob='48%'
                 />
 
@@ -78,7 +78,7 @@ const QAA = () => {
                     ]}
                     defaultValue="newest"
                     onChange={setSort}
-                    width='35%'
+                    widthPc='35%'
                     widthMob='100%'
                 />
             </div>
@@ -88,14 +88,31 @@ const QAA = () => {
             <div className="mt-4">
                 {filteredQuestions.length > 0 ? (
                     filteredQuestions.map(q => (
-                        <div key={q.id} className="flex items-center p-2 bg-[#FFF7F1] rounded-xl mb-3">
-                            <div className="w-[10%] flex justify-center">
-                                <FaUserCircle className="text-4xl text-gray-500" />
+                        <div key={q.id} className="p-4 bg-[#FFF7F1] rounded-xl mb-3">
+                            <div className='lg:flex sm:flex gap-8 justify-between'>
+                                <div className='flex gap-5 w-[90%]'>
+                                    <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center bg-[#402D1D] text-[#FFF] text-[20px] font-semibold">
+                                        VS
+                                    </div>
+                                    <div className="w-[70%]">
+                                        <div>
+                                            <p className="text-lg font-semibold">{q.user}</p>
+                                            <p className="text-[#402D1D] font-light">{q.question}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='flex flex-row sm:flex-col gap-5 text-right items-end justify-end pt-2'>
+                                    <p className='flex font-medium items-center gap-2'>47 <ArrowBorder /></p>
+                                    <p className='flex font-medium items-center gap-2'>247 <Message /></p>
+                                </div>
                             </div>
-                            <div className="w-[90%]">
-                                <p className="text-lg font-semibold">{q.user}</p>
-                                <p className="text-gray-700">{q.question}</p>
-                                <p className="text-sm text-gray-500">{q.date}</p>
+                            <div className='flex justify-between items-center w-[100%] sm:w-[90%] pt-5 pl-0 sm:pl-[70px]'>
+                                <div className='flex gap-3 items-center text-[#402D1D] font-light'>
+                                    <p className="text-sm">Victoria</p>
+                                    <p className="text-sm">Lecture 2</p>
+                                    <p className="text-sm">{q.date}</p>
+                                </div>
+                                <button>Reply</button>
                             </div>
                         </div>
                     ))
@@ -103,6 +120,9 @@ const QAA = () => {
                     <p className="text-center text-gray-500">No questions found.</p>
                 )}
             </div>
+            <button className='w-full py-2 bg-[#C6A982] rounded-xl text-base font-medium text-[#FFF]'>
+                See more
+            </button>
         </div>
     );
 };

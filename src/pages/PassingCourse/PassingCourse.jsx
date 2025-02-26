@@ -47,14 +47,15 @@ const PassingCourse = () => {
                     </div>
                     <div className='flex items-center gap-5 justify-end sm:justify-start px-8 pb-2 pt-4 sm:pt-0'>
                         <button
-                            className={`px-5 py-1 bg-[#C6A982] text-[#FFF] rounded-xl ${activeTab === 'Seminars' ? 'bg-[#402D1D]' : 'bg-[#C6A982]'}`}
                             onClick={() => handleTabClick('Seminars')}
+                            className={`px-5 py-1 text-[#FFF] rounded-xl ${activeTab === 'Seminars' ? 'bg-[#402D1D]' : 'bg-[#C6A982]'}`}
                         >
                             Seminars
                         </button>
                         <button
-                            className={`px-5 py-1 bg-[#C6A982] text-[#FFF] rounded-xl ${activeTab === 'Certification' ? 'bg-[#402D1D]' : 'bg-[#C6A982]'}`}
                             onClick={() => handleTabClick('Certification')}
+                            className={`px-5 py-1 text-[#FFF] rounded-xl ${activeTab === 'Certification' ? 'bg-[#402D1D]' : 'bg-[#C6A982]'}`}
+
                         >
                             Certification
                         </button>
