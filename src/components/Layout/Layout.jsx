@@ -58,9 +58,23 @@ const Layout = () => {
                     <div>
                         <h3 className="text-xl font-semibold mb-4">Pages</h3>
                         <ul className="space-y-2">
-                            {["Home", "About", "Courses", "Blog", "Contact"].map((page, index) => (
+                            {[
+                                { name: "Main", path: "/" },
+                                { name: "About Course", path: "/aboutcourse" },
+                                { name: "Certification", path: "/certification" },
+                                { name: "About OAA", path: "/aboutoaa" },
+                                { name: "Community", path: "/community" },
+                                { name: "Seminars", path: "/seminars" },
+                                { name: "Q&A", path: "/q-and-a" },
+                                { name: "Resources", path: "/resources" },
+                                { name: "Support", path: "/support" }
+                            ].map((page, index) => (
                                 <li key={index} className="hover:text-[#c6a982] transition">
-                                    <Link href="/">{page}</Link>
+                                    <Link
+                                        to={page.path}
+                                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                                    >{page.name}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
